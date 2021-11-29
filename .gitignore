@@ -1,0 +1,14 @@
+build/
+*/build/
+runs/
+wandb/
+data/
+**/__pycache__
+*.so
+cosense.egg-info/
+*egg-info/
+.idea/
+dist/
+*/dist/
+*.eggs/
+
