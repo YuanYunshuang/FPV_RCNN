@@ -39,11 +39,15 @@ tools/test_fusion_detector.py
 ## Citation
 If you find this work useful in your research, please consider cite:
 ```
-@misc{yunshuang2021,
-  title={Keypoints Based Deep Feature Fusion for Cooperative Vehicle Detectionof  Autonomous  Driving},
-  author={Yunshuang Yuan, Hao Cheng and Monika Sester},
-  year={2021}
-}
+@ARTICLE{9682601,
+  author={Yuan, Yunshuang and Cheng, Hao and Sester, Monika},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Keypoints-Based Deep Feature Fusion for Cooperative Vehicle Detection of Autonomous Driving}, 
+  year={2022},
+  volume={7},
+  number={2},
+  pages={3054-3061},
+  doi={10.1109/LRA.2022.3143299}}
 ```
 or cite:
 ```
