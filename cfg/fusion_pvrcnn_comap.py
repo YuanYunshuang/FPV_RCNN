@@ -30,7 +30,7 @@ class Dataset(object):
     def __init__(self):
         super(Dataset, self).__init__()
         self.name = 'comap'
-        self.root = 'path/to/data'
+        self.root = '/media/hdd/yuan/koko/data/synthdata_20veh_60m'
         self.pc_range = np.array([-57.6, -57.6, -0.1, 57.6, 57.6, 3.9])
         self.com_range = 40
         self.range_clip_mode = 'circle'
@@ -39,9 +39,9 @@ class Dataset(object):
         self.train_val_split = ['829', '965', '224', '685', '924', '334', '1175', '139',
                            '1070', '1050', '1162']
         self.train_split_ratio = 0.8
-        self.ego_cloud_name = 'cloud_ego' # 'noisy_cloud_ego'
-        self.coop_cloud_name = 'cloud_coop_with_label' # 'noisy_cloud_coop'
-        self.node_selection_mode = 'random_selection_40' # 'kmeans_selection_40'
+        self.ego_cloud_name = 'cloud_ego'
+        self.coop_cloud_name = 'cloud_coop_with_label'
+        self.node_selection_mode = 'random_selection_40'
         self.fuse_raw_data = False
         self.classes = {1: ['Vehicles'], 2: ['Roads', 'RoadLines']}  # 0 is reserved for not-defined class
 
@@ -58,7 +58,7 @@ class Dataset(object):
                              np.array(self.voxel_size)).astype(np.int64)
         self.feature_map_size = [1, *(self.grid_size / 8).astype(np.int64).tolist()[:-1]]
 
-        self.add_gps_noise = True
+        self.add_gps_noise = False
         self.gps_noise_std = np.array([0.4, 0.4, 0.0, 0.0, 0.0, 4]) * 0.5 # [x, y, z, roll, pitch, yaw]
         self.gps_noise_max_ratio = np.array([2.5, 2.5, 0.0, 0.0, 0.0, 1.5])
 
@@ -293,7 +293,8 @@ class Optimization:
         'ap_ious': [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
     }
         self.PATHS = {
-         'run': '/path/for/logging/output'
+        'run': '/media/hdd/yuan/koko/experiments-output/fusion-pvrcnn/publish_test' #rcnn_iou_reg_iou_resampling'
+        # 'run': '/path/for/logging/output'
     }
 
 

@@ -178,8 +178,10 @@ class RoIHead(nn.Module):
         global_roi_grid_points = global_roi_grid_points.view(batch_size, -1, 3)  # (B, Nx6x6x6, 3)
 
         # mask keypoints with cls and detection range
-        # mask = torch.norm(point_coords[:, :2], dim=1) < 57.6
-        mask = torch.logical_and(point_cls==4, torch.norm(point_coords[:, :2], dim=1) < 57.6)
+        if len(point_coords)==len(point_cls):
+            mask = torch.logical_and(point_cls==4, torch.norm(point_coords[:, :2], dim=1) < 57.6)
+        else:
+            mask = torch.norm(point_coords[:, :2], dim=1) < 57.6
 
         xyz = point_coords[mask]
         xyz_batch_cnt = xyz.new_zeros(batch_size).int()
