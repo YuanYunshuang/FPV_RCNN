@@ -123,5 +123,5 @@ def train_one_epoch(train_dataloader, model,optimizer, lr_scheduler, epoch, cfg,
 
 
 if __name__=="__main__":
-    cfgs = cfg_from_py('fusion_fmap_comap')
+    cfgs = cfg_from_py('fusion_pvrcnn_comap')
     train((cfg() for cfg in cfgs))

@@ -3,14 +3,6 @@ import numpy as np
 from vlib.visulization import draw_points_boxes_bev_3d as visualization
 from cfg import LABEL_COLORS
 
-if os.path.exists('/media/hdd/ophelia/koko/'):
-    koko = '/media/hdd/ophelia/koko/'
-elif os.path.exists('/workspace/koko/'):
-    koko = '/workspace/koko/'
-else:
-    raise IOError('Data path not found.')
-print('Found data path: {}'.format(koko))
-
 def update(dcfg_obj):
     dcfg_obj.n_classes = len(dcfg_obj.classes)
     dcfg_obj.grid_size = np.round((dcfg_obj.pc_range[3:6] - dcfg_obj.pc_range[:3]) /
@@ -38,7 +30,7 @@ class Dataset(object):
     def __init__(self):
         super(Dataset, self).__init__()
         self.name = 'comap'
-        self.root = koko + 'data/synthdata_20veh_60m'
+        self.root = 'path/to/data'
         self.pc_range = np.array([-57.6, -57.6, -0.1, 57.6, 57.6, 3.9])
         self.com_range = 40
         self.range_clip_mode = 'circle'
@@ -301,8 +293,7 @@ class Optimization:
         'ap_ious': [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
     }
         self.PATHS = {
-        'run': koko + 'experiments-output/fusion-pvrcnn/max_cons2' #rcnn_iou_reg_iou_resampling'
-        # 'run': '/path/for/logging/output'
+         'run': '/path/for/logging/output'
     }
 
 

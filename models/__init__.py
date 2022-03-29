@@ -4,6 +4,7 @@ from models.height_compression import HeightCompression
 from models.ssfa import SSFA
 from models.head import MultiGroupHead
 from models.vsa import VoxelSetAbstraction
+from models.matcher_v3 import MatcherV3
 from models.matcher_v2 import MatcherV2
 from models.matcher_v1 import MatcherV1
 from models.roi_head import RoIHead

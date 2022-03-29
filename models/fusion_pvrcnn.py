@@ -46,7 +46,7 @@ class FusionPVRCNN(nn.Module):
         self.semseg = SemSeg(**mcfg.SEMSEG)
         search_range = dcfg.gps_noise_std[[0, 1, -1]] * dcfg.gps_noise_max_ratio[[0, 1, -1]]
         search_range[:2] *= 2
-        self.matcher = MatcherV2(mcfg.MATCHER, dcfg.pc_range, has_noise=dcfg.add_gps_noise,
+        self.matcher = MatcherV3(mcfg.MATCHER, dcfg.pc_range, has_noise=dcfg.add_gps_noise,
                                  search_range=search_range)
         self.roi_head = RoIHead(mcfg.ROI_HEAD, self.head.box_coder)
 
@@ -69,7 +69,6 @@ class FusionPVRCNN(nn.Module):
 
         if n_coop > 0:
             batch_dict, num_total_dets = self.get_preds(batch_dict)
-
 
             if num_total_dets > 0:
                 batch_dict = self.vsa(batch_dict)
