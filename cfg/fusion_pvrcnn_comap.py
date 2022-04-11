@@ -3,6 +3,7 @@ import numpy as np
 from vlib.visulization import draw_points_boxes_bev_3d as visualization
 from cfg import LABEL_COLORS
 
+
 def update(dcfg_obj):
     dcfg_obj.n_classes = len(dcfg_obj.classes)
     dcfg_obj.grid_size = np.round((dcfg_obj.pc_range[3:6] - dcfg_obj.pc_range[:3]) /
@@ -272,11 +273,11 @@ class Optimization:
         'lr': 0.0001,
         'weight_decay': 0.0001,
         'betas': [0.95, 0.999],
-        'scheduler_step': 150,
-        'scheduler_gamma': 0.5,
+        'scheduler_step': [10, 20],
+        'scheduler_gamma': 0.1,
         'resume': True,
         'epoch': 0,
-        'total_epochs': 10,
+        'total_epochs': 50,
         'log_every': 20,
         'save_ckpt_every': 10
     }

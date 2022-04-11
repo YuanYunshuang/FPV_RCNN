@@ -27,7 +27,15 @@ cd ../.. && python setup.py develop
 Configurations for dataset pre-processing, model, training and testing can all be found in the python file
 of folder __cfg__. To train the network with default settings, only the data path _Dataset.root_ 
 and the output logging path _Optimization.PATHS['run']_  should be set. The logging path should contain 
-the pre-trained CIA-SSD checkpoint.
+the pre-trained CIA-SSD checkpoint. For example, if you want to train fpvrcnn, please configure the
+__fusion_pvrcnn_comap.py__ as follows:
+```python
+# or
+self.PATHS = {
+        'run': '/path/to/experiments_output/fusion-pvrcnn'
+}
+```
+and then put the cia-ssd checkpoint in the folder __experiments_output__.
 ### Training
 Pass the cfg file name (ex. "fusion_pvrcnn_comap") to the function _cfg_from_py_ in the training 
 or testing script, and run

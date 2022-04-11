@@ -6,8 +6,7 @@ import wandb, shutil
 from utils.train_utils import *
 from models.utils import load_model_dict
 import torch, random, numpy
-from tqdm import tqdm
-from utils.batch_statistics import StatsRecorder
+from glob import glob
 
 
 def train(cfgs):
@@ -46,7 +45,15 @@ def train(cfgs):
     # load checkpoint if resume training
     if cfg.TRAIN['resume']:
         if cfg.TRAIN['epoch']==0:
-            pretrained_dict = torch.load(str(log_path).rsplit('/', 1)[0] + '/latest.pth')
+            if os.path.exists(str(log_path).rsplit('/', 1)[0] + '/cia_ssd.pth'):
+                filename = str(log_path).rsplit('/', 1)[0] + '/cia_ssd.pth'
+            elif os.path.exists(str(log_path).rsplit('/', 1)[0] + '/latest.pth'):
+                filename = str(log_path).rsplit('/', 1)[0] + '/latest.pth'
+            else:
+                filenames = glob(str(log_path).rsplit('/', 1)[0] + '/*.pth')
+                filename = filenames[0]
+
+            pretrained_dict = torch.load(filename)
         else:
             pretrained_dict = torch.load(str(log_path / 'epoch{:03}.pth'.format(cfg.TRAIN['epoch'])))
         model = load_model_dict(model, pretrained_dict)
