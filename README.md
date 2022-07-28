@@ -5,7 +5,7 @@ and [SpConv](https://github.com/traveller59/spconv).
 
 ## Download dataset
 * Download the [COMAP](https://seafile.cloud.uni-hannover.de/d/1c52826e98d34c0399a4/) dataset and extract all folders
-* Download the pre-trained [CIA-SSD checkpoint](https://seafile.cloud.uni-hannover.de/f/35c4e520a14948eca6ef/) and store it in a new logging-path
+* Download the pre-trained [CIA-SSD checkpoint](https://seafile.cloud.uni-hannover.de/f/37986ccfc8ce46c2b4d2/?dl=1) and store it in a new logging-path
 ## Setup environment
 Tested on ubuntu 16.04 and cuda 10.1
 ```bash
