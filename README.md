@@ -4,7 +4,7 @@ This project is highly dependent on repo [OpenPCDet](https://github.com/open-mml
 and [SpConv](https://github.com/traveller59/spconv). 
 
 ## Download dataset
-* Download the [COMAP](https://seafile.cloud.uni-hannover.de/f/cb3e9e25646b4119a5e6/?dl=1) dataset and extract all folders
+* Download the [COMAP](https://seafile.cloud.uni-hannover.de/f/cb3e9e25646b4119a5e6/?dl=1](https://data.uni-hannover.de:8080/dataset/upload/users/ikg/yuan/cosense3d/COMAP/) dataset and extract all folders
 * Download the pre-trained [CIA-SSD checkpoint](https://seafile.cloud.uni-hannover.de/f/37986ccfc8ce46c2b4d2/?dl=1) and store it in a new logging-path
 ## Setup environment
 Tested on ubuntu 16.04 and cuda 10.1
